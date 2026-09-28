@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/02_distributed/distributed_quadrant.dart';
 
 class DistributedHomepage extends StatefulWidget {
   const DistributedHomepage({super.key});
@@ -88,123 +89,19 @@ class _DistributedHomepage extends State<DistributedHomepage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Kasten oben links
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 50),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _incrementCounter(3),
-                          icon: Icon(Icons.arrow_upward, color: Colors.white),
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70,
-                          vertical: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromARGB(255, 255, 154, 196),
-                              Color.fromARGB(255, 180, 110, 139),
-                            ],
-                          ),
-                        ),
-                        child: Text(
-                          '${_counters[0]}',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _decrementCounter(3),
-                          icon: Icon(Icons.arrow_downward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
+                DistributedQuadrant(
+                  counter: _counters[0],
+                  pushIndex: 3,
+                  incrementCounter: _incrementCounter,
+                  decrementCounter: _decrementCounter,
                 ),
 
                 // Kasten oben rechts
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 50),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _incrementCounter(2),
-                          icon: Icon(Icons.arrow_upward, color: Colors.white),
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70,
-                          vertical: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromARGB(255, 255, 154, 196),
-                              Color.fromARGB(255, 180, 110, 139),
-                            ],
-                          ),
-                        ),
-                        child: Text(
-                          '${_counters[1]}',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _decrementCounter(2),
-                          icon: Icon(Icons.arrow_downward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
+                DistributedQuadrant(
+                  counter: _counters[1],
+                  pushIndex: 2,
+                  incrementCounter: _incrementCounter,
+                  decrementCounter: _decrementCounter,
                 ),
               ],
             ),
@@ -214,123 +111,19 @@ class _DistributedHomepage extends State<DistributedHomepage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Kasten unten links
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 50),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _incrementCounter(1),
-                          icon: Icon(Icons.arrow_upward, color: Colors.white),
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70,
-                          vertical: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromARGB(255, 255, 154, 196),
-                              Color.fromARGB(255, 180, 110, 139),
-                            ],
-                          ),
-                        ),
-                        child: Text(
-                          '${_counters[2]}',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _decrementCounter(1),
-                          icon: Icon(Icons.arrow_downward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
+                DistributedQuadrant(
+                  counter: _counters[2],
+                  pushIndex: 1,
+                  incrementCounter: _incrementCounter,
+                  decrementCounter: _decrementCounter,
                 ),
 
                 // Kasten unten rechts
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 50),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _incrementCounter(0),
-                          icon: Icon(Icons.arrow_upward, color: Colors.white),
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70,
-                          vertical: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromARGB(255, 255, 154, 196),
-                              Color.fromARGB(255, 180, 110, 139),
-                            ],
-                          ),
-                        ),
-                        child: Text(
-                          '${_counters[3]}',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ),
-
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        child: IconButton(
-                          onPressed: () => _decrementCounter(0),
-                          icon: Icon(Icons.arrow_downward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
+                DistributedQuadrant(
+                  counter: _counters[3],
+                  pushIndex: 0,
+                  incrementCounter: _incrementCounter,
+                  decrementCounter: _decrementCounter,
                 ),
               ],
             ),
