@@ -8,57 +8,18 @@ class LocalHomepage extends StatefulWidget {
 }
 
 class _LocalHomepageState extends State<LocalHomepage> {
-  int _counter1 = 0;
-  int _counter2 = 0;
-  int _counter3 = 0;
-  int _counter4 = 0;
-  int get _counterSum => _counter1 + _counter2 + _counter3 + _counter4;
+  final List<int> _counters = [0, 0, 0, 0];
+  int get _counterSum => _counters.reduce((a, b) => a + b);
 
-  void _incrementCounter1() {
+  void _incrementCounter(int index) {
     setState(() {
-      _counter1++;
+      _counters[index]++;
     });
   }
 
-  void _decrementCounter1() {
+  void _decrementCounter(int index) {
     setState(() {
-      _counter1--;
-    });
-  }
-
-  void _incrementCounter2() {
-    setState(() {
-      _counter2++;
-    });
-  }
-
-  void _decrementCounter2() {
-    setState(() {
-      _counter2--;
-    });
-  }
-
-  void _incrementCounter3() {
-    setState(() {
-      _counter3++;
-    });
-  }
-
-  void _decrementCounter3() {
-    setState(() {
-      _counter3--;
-    });
-  }
-
-  void _incrementCounter4() {
-    setState(() {
-      _counter4++;
-    });
-  }
-
-  void _decrementCounter4() {
-    setState(() {
-      _counter4--;
+      _counters[index]--;
     });
   }
 
@@ -87,7 +48,6 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-
                         child: Text(
                           '$_counterSum',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -112,7 +72,6 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-
                         child: Text(
                           '$_counterSum',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -145,7 +104,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _incrementCounter4,
+                          onPressed: () => _incrementCounter(3),
                           icon: Icon(Icons.arrow_upward, color: Colors.white),
                         ),
                       ),
@@ -166,7 +125,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           ),
                         ),
                         child: Text(
-                          '$_counter1',
+                          '${_counters[0]}',
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
@@ -180,7 +139,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _decrementCounter4,
+                          onPressed: () => _decrementCounter(3),
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
                         ),
                       ),
@@ -205,7 +164,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _incrementCounter3,
+                          onPressed: () => _incrementCounter(2),
                           icon: Icon(Icons.arrow_upward, color: Colors.white),
                         ),
                       ),
@@ -226,7 +185,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           ),
                         ),
                         child: Text(
-                          '$_counter2',
+                          '${_counters[1]}',
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
@@ -240,7 +199,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _decrementCounter3,
+                          onPressed: () => _decrementCounter(2),
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
                         ),
                       ),
@@ -271,7 +230,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _incrementCounter2,
+                          onPressed: () => _incrementCounter(1),
                           icon: Icon(Icons.arrow_upward, color: Colors.white),
                         ),
                       ),
@@ -292,7 +251,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           ),
                         ),
                         child: Text(
-                          '$_counter3',
+                          '${_counters[2]}',
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
@@ -306,7 +265,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _decrementCounter2,
+                          onPressed: () => _decrementCounter(1),
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
                         ),
                       ),
@@ -331,7 +290,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _incrementCounter1,
+                          onPressed: () => _incrementCounter(0),
                           icon: Icon(Icons.arrow_upward, color: Colors.white),
                         ),
                       ),
@@ -352,7 +311,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           ),
                         ),
                         child: Text(
-                          '$_counter4',
+                          '${_counters[3]}',
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
@@ -366,7 +325,7 @@ class _LocalHomepageState extends State<LocalHomepage> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         child: IconButton(
-                          onPressed: _decrementCounter1,
+                          onPressed: () => _decrementCounter(0),
                           icon: Icon(Icons.arrow_downward, color: Colors.white),
                         ),
                       ),
