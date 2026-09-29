@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/02_distributed/distributed_quadrant.dart';
 import 'package:flutter_application_2/03_distributed_with_passive_widgets/distributed_row.dart';
 
 /// Creates 4 boxes with counters and changes their state.
