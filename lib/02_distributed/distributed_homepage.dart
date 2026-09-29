@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/02_distributed/distributed_quadrant.dart';
 
+/// Creates 4 boxes with counters and changes their state.
 class DistributedHomepage extends StatefulWidget {
+  /// Creates the local homepage.
+  /// [key]: Identifies this widget.
   const DistributedHomepage({super.key});
 
   @override

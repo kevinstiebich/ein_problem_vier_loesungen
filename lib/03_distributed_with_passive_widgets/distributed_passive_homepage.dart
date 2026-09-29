@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/02_distributed/distributed_quadrant.dart';
+import 'package:flutter_application_2/03_distributed_with_passive_widgets/distributed_row.dart';
 
+/// Creates 4 boxes with counters and changes their state.
 class DistributedPassiveHomepage extends StatefulWidget {
+  /// Creates the local homepage.
+  /// [key]: Identifies this widget.
   const DistributedPassiveHomepage({super.key});
 
   @override
@@ -86,47 +90,23 @@ class _DistributedPassiveHomepage extends State<DistributedPassiveHomepage> {
             ),
 
             // obere Reihe der Counter
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Kasten oben links
-                DistributedQuadrant(
-                  counter: _counters[0],
-                  pushIndex: 3,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
-                ),
-
-                // Kasten oben rechts
-                DistributedQuadrant(
-                  counter: _counters[1],
-                  pushIndex: 2,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
-                ),
-              ],
+            DistributedRow(
+              counter1: _counters[0],
+              counter2: _counters[1],
+              pushIndex1: 3,
+              pushIndex2: 2,
+              incrementCounter: _incrementCounter,
+              decrementCounter: _decrementCounter,
             ),
 
             // untere Reihe der Counter
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Kasten unten links
-                DistributedQuadrant(
-                  counter: _counters[2],
-                  pushIndex: 1,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
-                ),
-
-                // Kasten unten rechts
-                DistributedQuadrant(
-                  counter: _counters[3],
-                  pushIndex: 0,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
-                ),
-              ],
+            DistributedRow(
+              counter1: _counters[2],
+              counter2: _counters[3],
+              pushIndex1: 1,
+              pushIndex2: 0,
+              incrementCounter: _incrementCounter,
+              decrementCounter: _decrementCounter,
             ),
           ],
         ),
