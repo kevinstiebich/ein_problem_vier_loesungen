@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Creates 4 boxes with counters and changes their state.
 class LocalHomepage extends StatefulWidget {
+  /// Creates the local homepage.
+  /// [key]: Identifies this widget.
   const LocalHomepage({super.key});
 
   @override

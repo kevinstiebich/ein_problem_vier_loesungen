@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 
+/// Creates a quadrant with a counter and 2 buttons to raise and lower it.
 class DistributedQuadrant extends StatelessWidget {
+  /// Counts how many times the upward button was pushed minus the times the downward button was pushed.
   final int counter;
+
+  /// Represents the index of the counter that is going to be changed when pushing buttons.
   final int pushIndex;
+
+  /// Raises the counter.
   final Function(int index) incrementCounter;
+
+  /// Lowers the counter.
   final Function(int index) decrementCounter;
 
+  /// Constructor of the quadrant.
+  /// [key]: Indentifies this widget.
+  /// [counter]: Counts how many times the upward button was pushed minus the times the downward button was pushed.
+  /// [pushIndex]: Represents the index of the counter that is going to be changed when pushing buttons.
+  /// [incrementCounter]: Raises the counter.
+  /// [decrementCounter]: Lowers the counter.
   const DistributedQuadrant({
     super.key,
     required this.counter,
