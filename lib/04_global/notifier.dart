@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/04_global/counterstate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Notifier extends ChangeNotifier {
-  final int index;
-  final Function(int index) incrementCounter;
-  final Function(int index) decrementCounter;
-
-  Notifier({
-    required this.index,
-    required this.incrementCounter,
-    required this.decrementCounter,
-  });
-
+class CounterNotifier extends Notifier<CounterState> {
   void increment() {
     incrementCounter(index);
     notifyListeners();
