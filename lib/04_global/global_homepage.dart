@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/03_distributed_with_passive_widgets/distributed_row.dart';
 import 'package:flutter_application_2/04_global/counterstate.dart';
+import 'package:flutter_application_2/riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class GlobalHomepage extends StatefulWidget {
-  const GlobalHomepage({super.key});
+/// Creates 4 boxes with counters and changes their state.
+class GlobalHomepage extends ConsumerWidget {
+  /// Creates the global homepage.
+  /// [key]: Identifies this widget.
+  GlobalHomepage({super.key});
 
-  @override
-  State<GlobalHomepage> createState() => _GlobalHomepage();
-}
-
-class _GlobalHomepage extends State<GlobalHomepage> {
   final List<CounterState> _counters = [
     CounterState(counter: 0, pushIndex: 3),
     CounterState(counter: 0, pushIndex: 2),
@@ -24,24 +23,10 @@ class _GlobalHomepage extends State<GlobalHomepage> {
       _counters[2].counter +
       _counters[3].counter;
 
-  void _incrementCounter(int index) {
-    setState(() {
-      _counters[index] = _counters[index].copyWith(
-        counter: _counters[index].counter + 1,
-      );
-    });
-  }
-
-  void _decrementCounter(int index) {
-    setState(() {
-      _counters[index] = _counters[index].copyWith(
-        counter: _counters[index].counter - 1,
-      );
-    });
-  }
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final greeting = ref.watch(riverpod);
+
     return Scaffold(
       body: Center(
         child: Column(

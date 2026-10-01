@@ -44,7 +44,7 @@ class DistributedRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Kasten oben links
+        // Kasten links
         DistributedQuadrant(
           counter: counter1,
           pushIndex: pushIndex1,
@@ -52,7 +52,7 @@ class DistributedRow extends StatelessWidget {
           decrementCounter: decrementCounter,
         ),
 
-        // Kasten oben rechts
+        // Kasten rechts
         DistributedQuadrant(
           counter: counter2,
           pushIndex: pushIndex2,
