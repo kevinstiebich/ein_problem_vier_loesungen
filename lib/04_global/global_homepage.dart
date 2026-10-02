@@ -10,22 +10,10 @@ class GlobalHomepage extends ConsumerWidget {
   /// [key]: Identifies this widget.
   GlobalHomepage({super.key});
 
-  final List<CounterState> _counters = [
-    CounterState(counter: 0, pushIndex: 3),
-    CounterState(counter: 0, pushIndex: 2),
-    CounterState(counter: 0, pushIndex: 1),
-    CounterState(counter: 0, pushIndex: 0),
-  ];
-
-  int get _counterSum =>
-      _counters[0].counter +
-      _counters[1].counter +
-      _counters[2].counter +
-      _counters[3].counter;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final greeting = ref.watch(riverpod);
+    final counters = ref.watch(riverpod);
+    final notifier = ref.read(riverpod.notifier);
 
     return Scaffold(
       body: Center(
