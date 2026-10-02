@@ -40,29 +40,18 @@ class _DistributedHomepage extends State<DistributedHomepage> {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 1),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
+                  decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0)),
                   child: Row(
                     children: [
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 25,
-                          vertical: 12,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 12),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-                        child: Text(
-                          '$_counterSum',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
+                        child: Text('$_counterSum', style: TextStyle(color: Colors.white, fontSize: 20)),
                       ),
 
                       Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 213,
-                          vertical: 20,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 213, vertical: 20),
                         child: const Text(
                           'Overengineered Counter',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -71,15 +60,9 @@ class _DistributedHomepage extends State<DistributedHomepage> {
 
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 25,
-                          vertical: 12,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 12),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-                        child: Text(
-                          '$_counterSum',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
+                        child: Text('$_counterSum', style: TextStyle(color: Colors.white, fontSize: 20)),
                       ),
                     ],
                   ),
@@ -94,17 +77,23 @@ class _DistributedHomepage extends State<DistributedHomepage> {
                 // Kasten oben links
                 DistributedQuadrant(
                   counter: _counters[0],
-                  pushIndex: 3,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
+                  incrementCounter: () {
+                    _incrementCounter(3);
+                  },
+                  decrementCounter: () {
+                    _decrementCounter(3);
+                  },
                 ),
 
                 // Kasten oben rechts
                 DistributedQuadrant(
                   counter: _counters[1],
-                  pushIndex: 2,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
+                  incrementCounter: () {
+                    _incrementCounter(2);
+                  },
+                  decrementCounter: () {
+                    _decrementCounter(2);
+                  },
                 ),
               ],
             ),
@@ -116,17 +105,23 @@ class _DistributedHomepage extends State<DistributedHomepage> {
                 // Kasten unten links
                 DistributedQuadrant(
                   counter: _counters[2],
-                  pushIndex: 1,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
+                  incrementCounter: () {
+                    _incrementCounter(1);
+                  },
+                  decrementCounter: () {
+                    _decrementCounter(1);
+                  },
                 ),
 
                 // Kasten unten rechts
                 DistributedQuadrant(
                   counter: _counters[3],
-                  pushIndex: 0,
-                  incrementCounter: _incrementCounter,
-                  decrementCounter: _decrementCounter,
+                  incrementCounter: () {
+                    _incrementCounter(0);
+                  },
+                  decrementCounter: () {
+                    _decrementCounter(0);
+                  },
                 ),
               ],
             ),

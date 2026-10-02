@@ -1,35 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Creates a quadrant with a counter and 2 buttons to raise and lower it.
-class DistributedQuadrant extends StatelessWidget {
-  /// Counts how many times the upward button was pushed minus the times the downward button was pushed.
+class DistributedQuadrant extends ConsumerWidget {
   final int counter;
+  final void Function() incrementCounter;
+  final void Function() decrementCounter;
 
-  /// Represents the index of the counter that is going to be changed when pushing buttons.
-  final int pushIndex;
-
-  /// Raises the counter.
-  final Function(int index) incrementCounter;
-
-  /// Lowers the counter.
-  final Function(int index) decrementCounter;
-
-  /// Constructor of the quadrant.
-  /// [key]: Indentifies this widget.
-  /// [counter]: Counts how many times the upward button was pushed minus the times the downward button was pushed.
-  /// [pushIndex]: Represents the index of the counter that is going to be changed when pushing buttons.
-  /// [incrementCounter]: Raises the counter.
-  /// [decrementCounter]: Lowers the counter.
   const DistributedQuadrant({
-    super.key,
     required this.counter,
-    required this.pushIndex,
     required this.incrementCounter,
     required this.decrementCounter,
+    super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 70, vertical: 50),
       decoration: BoxDecoration(border: Border.all(color: Colors.black)),
@@ -39,7 +25,7 @@ class DistributedQuadrant extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 6, vertical: 5),
             decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0)),
             child: IconButton(
-              onPressed: () => incrementCounter(pushIndex),
+              onPressed: () => incrementCounter(),
               icon: Icon(Icons.arrow_upward, color: Colors.white),
             ),
           ),
@@ -50,23 +36,17 @@ class DistributedQuadrant extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromARGB(255, 255, 154, 196),
-                  Color.fromARGB(255, 180, 110, 139),
-                ],
+                colors: [Color.fromARGB(255, 255, 154, 196), Color.fromARGB(255, 180, 110, 139)],
               ),
             ),
-            child: Text(
-              '$counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            child: Text('$counter', style: Theme.of(context).textTheme.headlineMedium),
           ),
 
           Container(
             padding: EdgeInsets.symmetric(horizontal: 6, vertical: 5),
             decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0)),
             child: IconButton(
-              onPressed: () => decrementCounter(pushIndex),
+              onPressed: () => decrementCounter(),
               icon: Icon(Icons.arrow_downward, color: Colors.white),
             ),
           ),

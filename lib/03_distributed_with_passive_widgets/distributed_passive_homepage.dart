@@ -8,8 +8,7 @@ class DistributedPassiveHomepage extends StatefulWidget {
   const DistributedPassiveHomepage({super.key});
 
   @override
-  State<DistributedPassiveHomepage> createState() =>
-      _DistributedPassiveHomepage();
+  State<DistributedPassiveHomepage> createState() => _DistributedPassiveHomepage();
 }
 
 class _DistributedPassiveHomepage extends State<DistributedPassiveHomepage> {
@@ -41,29 +40,18 @@ class _DistributedPassiveHomepage extends State<DistributedPassiveHomepage> {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 1),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
+                  decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0)),
                   child: Row(
                     children: [
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 25,
-                          vertical: 12,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 12),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-                        child: Text(
-                          '$_counterSum',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
+                        child: Text('$_counterSum', style: TextStyle(color: Colors.white, fontSize: 20)),
                       ),
 
                       Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 213,
-                          vertical: 20,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 213, vertical: 20),
                         child: const Text(
                           'Overengineered Counter',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -72,15 +60,9 @@ class _DistributedPassiveHomepage extends State<DistributedPassiveHomepage> {
 
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 25,
-                          vertical: 12,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 12),
                         decoration: BoxDecoration(color: Colors.blueGrey),
-                        child: Text(
-                          '$_counterSum',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
+                        child: Text('$_counterSum', style: TextStyle(color: Colors.white, fontSize: 20)),
                       ),
                     ],
                   ),
@@ -90,22 +72,38 @@ class _DistributedPassiveHomepage extends State<DistributedPassiveHomepage> {
 
             // obere Reihe der Counter
             DistributedRow(
-              counter1: _counters[0],
-              counter2: _counters[1],
-              pushIndex1: 3,
-              pushIndex2: 2,
-              incrementCounter: _incrementCounter,
-              decrementCounter: _decrementCounter,
+              counterLeft: _counters[0],
+              incrementCounterLeft: () {
+                _incrementCounter(3);
+              },
+              decrementCounterLeft: () {
+                _decrementCounter(3);
+              },
+              counterRight: _counters[1],
+              incrementCounterRight: () {
+                _incrementCounter(2);
+              },
+              decrementCounterRight: () {
+                _decrementCounter(2);
+              },
             ),
 
             // untere Reihe der Counter
             DistributedRow(
-              counter1: _counters[2],
-              counter2: _counters[3],
-              pushIndex1: 1,
-              pushIndex2: 0,
-              incrementCounter: _incrementCounter,
-              decrementCounter: _decrementCounter,
+              counterLeft: _counters[2],
+              incrementCounterLeft: () {
+                _incrementCounter(1);
+              },
+              decrementCounterLeft: () {
+                _decrementCounter(1);
+              },
+              counterRight: _counters[3],
+              incrementCounterRight: () {
+                _incrementCounter(0);
+              },
+              decrementCounterRight: () {
+                _decrementCounter(0);
+              },
             ),
           ],
         ),
